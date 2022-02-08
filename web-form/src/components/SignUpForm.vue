@@ -1,12 +1,52 @@
 <template>
   <form>
-      <label></label>
-      <input type="email" required>
+      <label>Email</label>
+      <input v-model="email" type="email" required>
+      <label>Password</label>
+      <input v-model="password" type="password" required>
+      <label>Role:</label>
+      <select v-model="role">
+          <option value="developer">Web Dev</option>
+          <option value="designer">Designer</option>
+      </select>
+
+      <div class="terms">
+        <input type="checkbox" v-model="terms" required>
+        <label for="Accept Terms and Conditions"></label>
+      </div>
+
+      <div>
+        <input type="checkbox" value="shaun" v-model="names">
+        <label>Shaun</label>
+      </div>
+      <div>
+        <input type="checkbox" value="marc" v-model="names">
+        <label>Marc</label>
+      </div>
+      <div>
+        <input type="checkbox" value="mario" v-model="names">
+        <label>Mario</label>
+      </div>
+
   </form>
+
+  <p>Email: {{ email }}</p>
+  <p>password: {{ password }}</p>
+
+
 </template>
 
 <script>
 export default {
+  data(){
+    return{
+      email: '',
+      password: '',
+      role: '',
+      terms: false,
+      names: []
+    }
+  }
 
 }
 </script>
@@ -24,12 +64,12 @@ export default {
     color: #aaa;
     display: inline-block;
     margin: 25px 0 15px;
-    font-size: 0.6em;
+    font-size: 1em;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: bold;
   }
-  input {
+  input, select {
     display: block;
     padding: 10px 6px;
     width: 100%;
@@ -37,6 +77,13 @@ export default {
     border: none;
     border-bottom: 1px solid #ddd;
     color: #555;
+  }
+  input[type="checkbox"] {
+    display: inline-block;
+    width: 16px;
+    margin: 0 10px 0 0;
+    position: relative;
+    top: 2px;
   }
     
 
